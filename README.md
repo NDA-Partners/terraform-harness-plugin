@@ -137,9 +137,9 @@ flowchart TD
     F --> G["🤖 verificateur-terraform<br/>fmt · validate · tflint"]:::agent
     G -->|écarts| F
     G -->|OK| H["✅ Terraform vérifié<br/>100% AVM"]:::io
-    classDef agent fill: #DBEAFE, stroke: #2563EB, color: #1E40AF;
-    classDef human fill: #FFEDD5, stroke: #F97316, color: #C2410C;
-    classDef io fill: #F1F5F9, stroke: #64748B, color: #334155;
+    classDef agent fill:#DBEAFE,stroke:#2563EB,color:#1E40AF;
+    classDef human fill:#FFEDD5,stroke:#F97316,color:#C2410C;
+    classDef io fill:#F1F5F9,stroke:#64748B,color:#334155;
 ```
 
 | Rôle                        | Ce qu'il fait                                                                                  |
