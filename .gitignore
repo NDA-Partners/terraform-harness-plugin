@@ -1,0 +1,15 @@
+# Terraform : artefacts régénérables et état, jamais versionnés
+**/.terraform/
+*.tfstate
+*.tfstate.*
+**/.terraform.lock.hcl
+crash.log
+
+# tflint (cache des plugins)
+.tflint.d/
+
+# Divers
+.DS_Store
+.env
+*settings.local.json
+node_modules/

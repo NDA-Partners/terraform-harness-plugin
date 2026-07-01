@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Claude Code" version="24.0.0" type="device">
+  <diagram id="app-web-demo-avm" name="Application web de démo QUA - AVM">
+    <mxGraphModel dx="1920" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0" background="#FEFEFE">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg-white" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FEFEFE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1600" height="1000" as="geometry"/>
+        </mxCell>
+        <mxCell id="title" value="Application web de démo (QUA) - architecture en briques AVM" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#0F172A;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1200" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Sortie du harness : spec validée puis schéma puis Terraform vérifié (fmt / validate / tflint)" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="zone-rg" value="Resource group : rg-webapp-qua (région UE)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=2;fontColor=#334155;fontSize=18;verticalAlign=top;align=left;spacingLeft=16;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="1440" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-app" value="Web App&#10;avm-res-web-site 0.22.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="180" y="330" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-plan" value="App Service Plan&#10;avm-res-web-serverfarm 2.0.7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="180" y="560" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-kv" value="Key Vault&#10;avm-res-keyvault-vault 0.10.2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="640" y="300" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-sa" value="Storage Account&#10;avm-res-storage-storageaccount 0.7.3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="640" y="520" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-law" value="Log Analytics&#10;avm-res-operationalinsights-workspace 0.5.1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=2;fontColor=#047857;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="400" width="290" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn-plan-app" value="service_plan_resource_id" style="endArrow=classic;html=1;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=12;" edge="1" parent="1" source="node-plan" target="node-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn-app-kv" value="identité managée&#10;Key Vault Secrets User" style="endArrow=classic;html=1;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=12;" edge="1" parent="1" source="node-app" target="node-kv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn-app-sa" value="identité managée&#10;Storage Blob Data Contributor" style="endArrow=classic;html=1;strokeColor=#2563EB;strokeWidth=2;fontColor=#1E40AF;fontSize=12;" edge="1" parent="1" source="node-app" target="node-sa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn-app-law" value="diagnostic settings" style="endArrow=classic;html=1;dashed=1;dashPattern=6 4;strokeColor=#10B981;strokeWidth=2;fontColor=#047857;fontSize=12;" edge="1" parent="1" source="node-app" target="node-law">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn-kv-law" value="diagnostic settings" style="endArrow=classic;html=1;dashed=1;dashPattern=6 4;strokeColor=#10B981;strokeWidth=2;fontColor=#047857;fontSize=12;" edge="1" parent="1" source="node-kv" target="node-law">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-box" value="Légende" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFEFE;strokeColor=#64748B;strokeWidth=1;fontColor=#334155;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="800" width="620" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-avm" value="Brique AVM (couverte, sécurisée par construction)" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#1E40AF;" vertex="1" parent="1">
+          <mxGeometry x="150" y="835" width="520" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-avm-swatch" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="838" width="34" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-law" value="Service de support (Log Analytics)" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#047857;" vertex="1" parent="1">
+          <mxGeometry x="150" y="875" width="520" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-law-swatch" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="878" width="34" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-conn" value="Trait plein : câblage direct (input). Pointillé vert : diagnostic settings." style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="100" y="912" width="580" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

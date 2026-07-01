@@ -1,0 +1,11 @@
+{
+  "version": "1",
+  "name": "nda-terraform-harness",
+  "plugins": [
+    {
+      "name": "terraform-harness",
+      "source": "./adapters/claude-code",
+      "description": "Génère du Terraform Azure (Azure Verified Modules) validé sur un schéma et vérifié statiquement, via un workflow multi-agents. Sans déploiement."
+    }
+  ]
+}
