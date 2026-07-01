@@ -32,7 +32,7 @@ Concrètement, il outille la **revue d'architecture** et sépare deux temps : d'
 ## 🚀 Quick start
 
 ```bash
-# 1. Prérequis (une seule fois) — voir détails plus bas
+# 1. Prérequis (une seule fois) — installer Terraform sur votre machine
 brew install hashicorp/tap/terraform
 # + tflint (voir Installation)
 ```
@@ -137,18 +137,17 @@ flowchart TD
     F --> G["🤖 verificateur-terraform<br/>fmt · validate · tflint"]:::agent
     G -->|écarts| F
     G -->|OK| H["✅ Terraform vérifié<br/>100% AVM"]:::io
-
-    classDef agent fill:#DBEAFE,stroke:#2563EB,color:#1E40AF;
-    classDef human fill:#FFEDD5,stroke:#F97316,color:#C2410C;
-    classDef io fill:#F1F5F9,stroke:#64748B,color:#334155;
+    classDef agent fill: #DBEAFE, stroke: #2563EB, color: #1E40AF;
+    classDef human fill: #FFEDD5, stroke: #F97316, color: #C2410C;
+    classDef io fill: #F1F5F9, stroke: #64748B, color: #334155;
 ```
 
-| Rôle | Ce qu'il fait |
-|---|---|
-| 🤖 `architecte-azure` | ingère la demande, lève les points en suspens, mappe chaque composant sur un AVM → **spec** |
-| 🤖 `schema-archi` | matérialise la spec en **schéma DrawIO** (nœuds = briques AVM, arêtes = relations) |
-| 🤖 `redacteur-terraform` | traduit le schéma validé en **code `.tf`** (1 brique AVM = 1 `module`, 1 relation = 1 câblage) |
-| 🤖 `verificateur-terraform` | **vérifie** statiquement (`fmt`/`validate`/`tflint`) + conformité à la constitution |
+| Rôle                        | Ce qu'il fait                                                                                  |
+|-----------------------------|------------------------------------------------------------------------------------------------|
+| 🤖 `architecte-azure`       | ingère la demande, lève les points en suspens, mappe chaque composant sur un AVM → **spec**    |
+| 🤖 `schema-archi`           | matérialise la spec en **schéma DrawIO** (nœuds = briques AVM, arêtes = relations)             |
+| 🤖 `redacteur-terraform`    | traduit le schéma validé en **code `.tf`** (1 brique AVM = 1 `module`, 1 relation = 1 câblage) |
+| 🤖 `verificateur-terraform` | **vérifie** statiquement (`fmt`/`validate`/`tflint`) + conformité à la constitution            |
 
 > Le principe : **valider l'architecture sur un schéma avant d'écrire une ligne de code**. Le visuel rend les
 > relations entre ressources lisibles là où le texte les noie. Une fois le schéma validé, la traduction en
