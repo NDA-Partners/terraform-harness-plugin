@@ -1,6 +1,10 @@
 {
   "version": "1",
   "name": "nda-terraform-harness",
+  "owner": {
+    "name": "NDA Partners",
+    "url": "https://github.com/NDA-Partners"
+  },
   "plugins": [
     {
       "name": "terraform-harness",
