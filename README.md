@@ -34,8 +34,10 @@ Le repo sépare la **substance** de l'**emballage par outil** :
 Les standards pivots d'interopérabilité sont **`SKILL.md`** et **`AGENTS.md`**. La sortie générée est
 commitée (une installation ne relance pas le build).
 
-**Roadmap** : d'autres adaptateurs (Cursor, Codex via `AGENTS.md`, etc.) pourront être ajoutés sans réécrire
-la substance, en ajoutant un `build/build-<outil>.mjs` et un `adapters/<outil>/`.
+> **Bientôt** : des adaptateurs pour **d'autres outils que Claude Code** (Cursor, Codex via `AGENTS.md`, etc.)
+> seront ajoutés prochainement. Aujourd'hui seul l'adaptateur Claude Code est livré ; l'architecture en
+> couches est faite pour accueillir les suivants sans réécrire la substance (un `build/build-<outil>.mjs` et
+> un `adapters/<outil>/` de plus).
 
 ## Prérequis
 
