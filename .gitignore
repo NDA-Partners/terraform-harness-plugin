@@ -13,3 +13,7 @@ crash.log
 .env
 *settings.local.json
 node_modules/
+
+# IDE
+.idea/
+.vscode/
