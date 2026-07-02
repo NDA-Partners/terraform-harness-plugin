@@ -1,12 +1,12 @@
 {
-  "name": "terraform-harness",
+  "name": "architecture-factory",
   "description": "Harness multi-agents pour concevoir puis générer du Terraform Azure conforme, à base d'Azure Verified Modules, validé sur un schéma DrawIO et vérifié statiquement (fmt, validate, tflint). Sans déploiement ni accès Azure.",
   "version": "0.1.0",
   "author": {
     "name": "NDA Partners",
     "url": "https://github.com/NDA-Partners"
   },
-  "homepage": "https://github.com/NDA-Partners/terraform-harness-plugin",
-  "repository": "https://github.com/NDA-Partners/terraform-harness-plugin",
+  "homepage": "https://github.com/NDA-Partners/Architecture-Factory",
+  "repository": "https://github.com/NDA-Partners/Architecture-Factory",
   "license": "Apache-2.0"
 }

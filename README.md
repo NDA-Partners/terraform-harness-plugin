@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏗️ terraform-harness
+# 🏗️ NDA Architecture Factory
 
 **Décris ton architecture Azure. Récupère du Terraform conforme, validé sur un schéma et vérifié.**
 
@@ -19,7 +19,7 @@ Un harness multi-agents pour Claude Code qui transforme une demande d'architectu
 ## 💡 Pourquoi
 
 Un LLM laissé seul produit du Terraform **plausible**, mais rien ne garantit qu'il soit correct, conforme aux
-conventions maison ou sûr. `terraform-harness` encadre la génération : il **spécialise les rôles**, **charge
+conventions maison ou sûr. **NDA Architecture Factory** encadre la génération : il **spécialise les rôles**, **charge
 les bonnes pratiques au bon moment** et **vérifie systématiquement** la sortie. On passe du *vibe coding* à une
 production tracée. Terrain idéal : le Terraform, dont la sortie est **objectivement vérifiable** (elle passe
 `validate`/`tflint` ou pas).
@@ -39,8 +39,8 @@ brew install hashicorp/tap/terraform
 
 ```text
 # 2. Dans Claude Code, installer le plugin
-/plugin marketplace add NDA-Partners/terraform-harness-plugin
-/plugin install terraform-harness@nda-terraform-harness
+/plugin marketplace add NDA-Partners/Architecture-Factory
+/plugin install architecture-factory@nda-architecture-factory
 /reload-plugins
 
 # 3. Lancer le harness
@@ -77,13 +77,13 @@ brew install tflint          # via le tap officiel tflint
 ### 2. Installer le plugin
 
 ```text
-/plugin marketplace add NDA-Partners/terraform-harness-plugin
-/plugin install terraform-harness@nda-terraform-harness
+/plugin marketplace add NDA-Partners/Architecture-Factory
+/plugin install architecture-factory@nda-architecture-factory
 /reload-plugins
 ```
 
 La première commande enregistre le **catalogue** (marketplace) dans ta liste locale ; la seconde **installe**
-le plugin ; `/reload-plugins` (ou un redémarrage de session) l'active. Après ça, les 4 agents et la skill
+le plugin `architecture-factory` ; `/reload-plugins` (ou un redémarrage de session) l'active. Après ça, les 4 agents et la skill
 `generer-terraform` sont disponibles.
 
 ---
@@ -184,6 +184,20 @@ installation clone le dépôt tel quel, sans relancer le build).
 - MVP : **un archétype** (App Service + Key Vault + Storage).
 - **Un seul adaptateur** (Claude Code) pour l'instant.
 - Les AVM sont en pré-1.0 : le harness **épingle les versions** et signale la convention **AzAPI**.
+
+---
+
+## 🔭 Évolutions à venir
+
+- **Fondations client** : partir des modules **homologués internes** du client plutôt que des AVM publics
+  (amorçables depuis l'existant via aztfexport).
+- **Agnosticisme outil** : au-delà de Terraform, sorties **AWS CDK, Pulumi, Bicep**.
+- **Agnosticisme cloud** : au-delà d'Azure, **AWS et GCP**.
+- **Vérification renforcée** : audit de sécurité, policy-as-code **Sentinel**, `plan`, revue LLM-as-judge.
+- **Ancrage temps réel** : **Terraform MCP Server** (registre privé, workspaces, policy sets).
+- **Reprise d'existant (brownfield)** : import de l'infra en place via **aztfexport**.
+- **Multi-outils** : adaptateurs **Cursor, Codex** (`AGENTS.md`)…
+- **Ontologie enrichie** : nouveaux archétypes (réseau Hub & Spoke, bases de données…).
 
 ---
 

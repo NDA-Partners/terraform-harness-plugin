@@ -1,4 +1,4 @@
-# Contribuer à terraform-harness
+# Contribuer à NDA Architecture Factory
 
 Merci de votre intérêt. Les améliorations sont bienvenues : nouveaux archétypes, ontologie enrichie,
 adaptateurs pour d'autres outils, corrections.
